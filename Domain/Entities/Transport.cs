@@ -17,7 +17,7 @@ namespace Domain.Entities
         public DateTime ArrivalDateTime { get; private set; }
         // Other relevant properties for a Transport
 
-        public Transport(int id, string type, string company, Location departureLocation, Location destinationLocation, DateTime departureDateTime, DateTime arrivalDateTime)
+        public Transport(int id, TransportType type, string company, Location departureLocation, Location destinationLocation, DateTime departureDateTime, DateTime arrivalDateTime)
         {
             Id = id;
             Type = type;

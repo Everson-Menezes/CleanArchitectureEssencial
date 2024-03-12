@@ -47,9 +47,9 @@ namespace Domain.Entities
             DomainExceptionValidation.When(id < 0, "Invalid id value!");
             Id = id;
         }
-        private void ValidateDomainDocument(int docuent)
+        private void ValidateDomainDocument(int document)
         {
-            DomainExceptionValidation.When(id < 9, "Invalid Document value!");
+            DomainExceptionValidation.When(document < 9, "Invalid Document value!");
             Document = document;
         }
     }
