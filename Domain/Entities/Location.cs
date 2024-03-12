@@ -5,18 +5,18 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public sealed class Destination
+    public sealed class Location
     {
         public int Id { get; private set; }
         public string Name { get; private set; }
-        public Location Location { get; private set; }
-        // Other relevant properties for a destination
+        public Address Address { get; private set; }
+        // Other relevant properties for a Location
 
-        public Destination(int id, string name, Location location)
+        public Location(int id, string name, Address address)
         {
             Id = id;
             Name = name;
-            Location = location;
+            Address = address;
         }
     }
 }

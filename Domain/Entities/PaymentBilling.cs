@@ -7,12 +7,12 @@ namespace Domain.Entities
 {
     public sealed class PaymentBilling
     {
-        public int Id { get; }
-        public decimal Amount { get; }
-        public DateTime PaymentDate { get; }
-        public string PaymentMethod { get; }
-        public string Status { get; }
-        // Outras propriedades relevantes para pagamento e faturamento
+        public int Id { get; private set; }
+        public decimal Amount { get; private set; }
+        public DateTime PaymentDate { get; private set; }
+        public string PaymentMethod { get; private set; }
+        public string Status { get; private set; }
+        // Other relevant properties for a payment and billing
 
         public PaymentBilling(int id, decimal amount, DateTime paymentDate, string paymentMethod, string status)
         {

@@ -7,10 +7,10 @@ namespace Domain.Entities
 {
     public sealed class Reservation
     {
-        public int Id { get; set; }
-        public Customer Customer { get; set; }
-        public Destination Destination { get; set; }
-        public DateTime Date { get; set; }
+        public int Id { get; private set; }
+        public Customer Customer { get; private set; }
+        public Destination Destination { get; private set; }
+        public DateTime Date { get; private set; }
         // Other relevant properties for a reservation
 
         public Reservation(int id, Customer customer, Destination destination, DateTime date)
