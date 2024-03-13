@@ -1,3 +1,4 @@
+using Domain.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +14,17 @@ namespace Domain.Entities
         public DateTime Date { get; private set; }
         // Other relevant properties for a reservation
 
-        public Reservation(int id, Customer customer, Destination destination, DateTime date)
+        public Reservation(int id, Customer customer, Destination destination)
         {
-            Id = id;
+            ValidateId(id);
             Customer = customer;
             Destination = destination;
-            Date = date;
+            Date = DateTime.Now;
+        }
+        private void ValidateId(int id)
+        {
+            DomainExceptionValidation.When(id < 0, "Invalid id value!");
+            Id = id;
         }
     }
 }

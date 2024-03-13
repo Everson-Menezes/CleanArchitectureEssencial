@@ -17,37 +17,37 @@ namespace Domain.Entities
 
         public Customer(int id, string name, string email, string phone, int document)
         {
-            ValidateDomainName(name);
-            ValidateDomainEmail(email);
-            ValidateDomainPhone(phone);
-            ValidateDomainId(id);
-            ValidateDomainDocument(document);
+            ValidateName(name);
+            ValidateEmail(email);
+            ValidatePhone(phone);
+            ValidateId(id);
+            ValidateDocument(document);
         }
 
-        private void ValidateDomainName(string name)
+        private void ValidateName(string name)
         {
             DomainExceptionValidation.When(string.IsNullOrEmpty(name), "Invalid name. Name is required!");
-            DomainExceptionValidation.When(name.Length < 3, "Invalid state. State must have at least three (3) characters!");
+            DomainExceptionValidation.When(name.Length < 3, "Invalid name. Name must have at least three (3) characters!");
             Name = name;
         }
-        private void ValidateDomainEmail(string email)
+        private void ValidateEmail(string email)
         {
             DomainExceptionValidation.When(string.IsNullOrEmpty(email), "Invalid email. Email is required!");
-            DomainExceptionValidation.When(email.Length < 13, "Invalid state. State must have at least thirteen (13) characters!");
+            DomainExceptionValidation.When(email.Length < 13, "Invalid email. Email must have at least thirteen (13) characters!");
             Email = email;
         }
-        private void ValidateDomainPhone(string phone)
+        private void ValidatePhone(string phone)
         {
             DomainExceptionValidation.When(string.IsNullOrEmpty(phone), "Invalid phone. Phone is required!");
-            DomainExceptionValidation.When(phone.Length < 11, "Invalid state. State must have at least eleven (11) characters!");
+            DomainExceptionValidation.When(phone.Length < 11, "Invalid phone. Phone must have at least eleven (11) characters!");
             Phone = phone;
         }
-        private void ValidateDomainId(int id)
+        private void ValidateId(int id)
         {
             DomainExceptionValidation.When(id < 0, "Invalid id value!");
             Id = id;
         }
-        private void ValidateDomainDocument(int document)
+        private void ValidateDocument(int document)
         {
             DomainExceptionValidation.When(document < 9, "Invalid Document value!");
             Document = document;
