@@ -67,9 +67,10 @@ namespace Domain.Entities
             switch (country)
             {
                 case "United States":
-                    DomainExceptionValidation.When(postalCode.Length < 5, "Invalid postal code. Postal code must have at least five (5) characters!");
+                    DomainExceptionValidation.When(postalCode.Length != 5, "Invalid postal code. Postal code must have five (5) characters!");
                     break;
                 case "Brazil":
+                    DomainExceptionValidation.When(postalCode.Length != 8, "Invalid postal code. Postal code must have eight (8) characters!");
                     break;
                 default:
                     DomainExceptionValidation.When(true, "The country does not have it owns postal code validation, we must contact the bussines");
