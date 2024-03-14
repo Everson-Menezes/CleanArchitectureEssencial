@@ -7,7 +7,7 @@ namespace Domain_Test;
 public class AddressTest
 {
     [Fact]
-    public void Invalid_Id_Throws_DomainException()
+    public void ValidateId_WithInvalidId_ThrowsDomainException()
     {
         // Arrange
         int invalidId = -1;
@@ -22,7 +22,7 @@ public class AddressTest
         Assert.Equal("Invalid id value!", exception.Message);
     }
     [Fact]
-    public void Invalid_NullStreet_Throws_DomainException()
+    public void ValidateStreet_WithNullStreet_ThrowsDomainException()
     {
         // Arrange
         string invalidStreet = null;
@@ -37,7 +37,7 @@ public class AddressTest
         Assert.Equal("Invalid street. Street is required!", exception.Message);
     }
     [Fact]
-    public void Invalid_NullCity_Throws_DomainException()
+    public void ValidateCity_WithNullCity_ThrowsDomainException()
     {
         // Arrange
         string ivalidCity = null;
@@ -52,7 +52,7 @@ public class AddressTest
         Assert.Equal("Invalid city. City is required!", exception.Message);
     }
     [Fact]
-    public void Invalid_City_Throws_DomainException()
+    public void ValidateCity_WithTooShortCity_ThrowsDomainException()
     {
         // Arrange
         string ivalidCity = "ABC";
@@ -66,7 +66,7 @@ public class AddressTest
         Assert.Equal("Invalid city. City must have at least four (4) characters!", exception.Message);
     }
     [Fact]
-    public void Invalid_NullState_Throws_DomainException()
+    public void ValidateState_WithNullState_ThrowsDomainException()
     {
         // Arrange
         string ivalidState = null;
@@ -81,7 +81,7 @@ public class AddressTest
         Assert.Equal("Invalid state. State is required!", exception.Message);
     }
     [Fact]
-    public void Invalid_State_Throws_DomainException()
+    public void ValidateState_WithTooShortState_ThrowsDomainException()
     {
         // Arrange
         string ivalidState = "A";
@@ -96,7 +96,7 @@ public class AddressTest
         Assert.Equal("Invalid state. State must have at least two (2) characters!", exception.Message);
     }
     [Fact]
-    public void Invalid_NullPotalCode_Throws_DomainException()
+    public void ValidatePostalCode_WithNullPotalCode_ThrowsDomainException()
     {
         // Arrange
         string ivalidPostalCode = null;
@@ -110,7 +110,7 @@ public class AddressTest
         Assert.Equal("Invalid postal code. Postal Code is required!", exception.Message);
     }
     [Fact]
-    public void InvalidPostalCode_Throws_Exception_When_Country_Is_UnitedStates_And_PostalCode_Length_Is_Different_Of_Five()
+    public void ValidatePostalCode__WhenCountryIsUnitedStatesPostalCodeLengthIsDifferentOfFive_ThrowsDomainException()
     {
         // Arrange
         string postalCode = "1234";
@@ -124,7 +124,7 @@ public class AddressTest
         Assert.Equal("Invalid postal code. Postal code must have five (5) characters!", exception.Message);
     }
     [Fact]
-    public void InvalidPostalCode_Throws_Exception_When_Country_Is_Brazil_And_PostalCode_Length_Is_Different_Of_Eight()
+    public void ValidatePostalCode__WhenCountryIsBrazilPostalCodeLengthIsDifferentOfEight_ThrowsDomainException()
     {
         // Arrange
         string postalCode = "1234567";
@@ -138,7 +138,7 @@ public class AddressTest
         Assert.Equal("Invalid postal code. Postal code must have eight (8) characters!", exception.Message);
     }
     [Fact]
-    public void InvalidPostalCode_Throws_Exception_When_Country_Is_Different_From_Brazil_Or_UnitedStates()
+    public void ValidatePostalCode__WhenCountryIsDifferentFromBrazilOrUnitedStates_ThrowsDomainException()
     {
         // Arrange
         string postalCode = "1234567";
@@ -152,7 +152,7 @@ public class AddressTest
         Assert.Equal("The country does not have it owns postal code validation, we must contact the bussines", exception.Message);
     }
     [Fact]
-    public void Invalid_NullCountry_Throws_DomainException()
+    public void ValidateCountry_WithNullCountry_ThrowsDomainException()
     {
         // Arrange
         string ivalidCountry = null;
@@ -166,7 +166,7 @@ public class AddressTest
         Assert.Equal("Invalid country. Country is required!", exception.Message);
     }
     [Fact]
-    public void Invalid_Country_Throws_DomainException()
+    public void ValidateCountry_WhenCountryLengthIsLessThanFive_ThrowsDomainException()
     {
         // Arrange
         string ivalidCountry = "ABCD";
@@ -181,7 +181,7 @@ public class AddressTest
 
     }
     [Fact]
-    public void Constructor_Valid_Id_And_Country_Is_Brazil_Does_Not_Throw_Exception()
+    public void Constructor_WithValidParametersAndCountryIsBrazil_CreatesAddressObject()
     {
         // Arrange
         int validId = 1;
@@ -198,7 +198,7 @@ public class AddressTest
         Assert.NotNull(address);
     }
     [Fact]
-    public void Constructor_Valid_Id_And_Country_Is_UnitedStates_Does_Not_Throw_Exception()
+    public void Constructor_WithValidParametersAndCountryIsUnitedStates_CreatesAddressObject()
     {
         // Arrange
         int validId = 1;
